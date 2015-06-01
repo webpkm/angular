@@ -1,0 +1,57 @@
+
+<a href="http://www.google.com" id="aa">Goto Google.com</a>
+<a href="http://www.yahoo.com">Goto Yahoo.com</a>
+<a href="http://www.rediff.com">Goto Rediff.com</a>
+<a href="http://www.amazon.com">Goto amazon.com</a>
+
+
+<style>
+a {
+	display:block;
+	padding:10px;
+	border:1px solid #CCC;
+}
+
+a::after {
+	content:">>";
+}
+</style>
+<script language="javascript">function fnUnloadHandler(){alert("Unload event.. Do something to invalidate users session..");}</script>
+ 
+    <!-- Your page content -->
+<script>
+function test() {
+	alert("I am test");
+}
+var sel = document.getElementsByTagName("a");
+for(i=0; i<sel.length; i++) {
+	var el = sel[i];
+	el.addEventListener("click", function(event){
+		alert(this.href);
+		event.preventDefault();
+	}, true);
+}
+console.log(sel);
+
+//Write array unique function
+var myArray = new Array("Apple","Orange","Banana","Apple","Orange","Graps","Gvava");
+var uniqueArray = [];
+for(i=0; i<myArray.length; i++) {
+	var el = myArray[i];
+	var found=0;
+	for(j=0; j<uniqueArray.length; j++) {
+		if(el == uniqueArray[j]) {
+			found=1;
+			break;
+		}
+	}
+	if(!found) {
+		uniqueArray.push(el);
+	}
+}
+console.log(uniqueArray);
+alert(myArray.length);
+
+//Write bubble sort function
+
+</script>

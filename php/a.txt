@@ -1,0 +1,360 @@
+<article id="wikiArticle">
+<div><section class="Quick_links" id="Quick_Links"><!-- --></section></div>
+
+<p>Object-oriented to the core, JavaScript features&nbsp;powerful, flexible <a class="glossaryLink" href="/en-US/docs/Glossary/OOP" title="OOP: OOP (object-oriented programming) is an approach in programming in which data is encapsulated within objects and the object itself is operated on, rather than its component parts.">OOP</a> capabilities. This article starts with an introduction to object-oriented programming, then reviews the JavaScript object model, and finally demonstrates concepts of object-oriented programming in JavaScript.</p>
+
+<h2 id="JavaScript_review">JavaScript review</h2>
+
+<p>If you don't feel confident about JavaScript concepts such as variables, types, functions, and scope, you can read about those topics in <a href="/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript">A re-introduction to JavaScript</a>. You can also consult the <a href="/en-US/docs/Web/JavaScript/Guide">JavaScript Guide</a>.</p>
+
+<h2 id="Object-oriented_programming">Object-oriented programming</h2>
+
+<p>Object-oriented programming (OOP) is a programming paradigm that uses <a class="glossaryLink" href="/en-US/docs/Glossary/abstraction" title="abstraction: Abstraction in computer programming is a way to&nbsp;reduce complexity and allow efficient design and implementation in complex software systems. It hides the technical complexity of systems behind simpler&nbsp;APIs.">abstraction</a>&nbsp;to create models based on the real world. OOP uses several techniques from previously established paradigms, including <a class="new glossaryLink" href="/en-US/docs/Glossary/modularity" title="The definition of that term (modularity) has not been written yet; please consider contributing it!">modularity</a>, <a class="glossaryLink" href="/en-US/docs/Glossary/polymorphism" title="polymorphism: Polymorphism is the presentation of one interface for multiple data types.
+ For example, integers, floats, and doubles are implicitly polymorphic: regardless of their different types, they can all be added, subtracted, multiplied, and so on.">polymorphism</a>, and <a class="glossaryLink" href="/en-US/docs/Glossary/encapsulation" title="encapsulation: Encapsulation is the packing of data and functions into one&nbsp;component (for example, a class) and then controlling access to that&nbsp;component to make a &quot;blackbox&quot; out of the object.&nbsp;Because of this, a user of that class only needs to know its interface (that is, the data and functions exposed&nbsp;outside&nbsp;the class), not the hidden implementation.">encapsulation</a>. Today, many popular programming languages (such as Java, JavaScript, C#, C++, Python, PHP, Ruby and Objective-C) support OOP.</p>
+
+<p>OOP&nbsp;envisions software as&nbsp;a collection of cooperating objects rather than&nbsp;a collection&nbsp;of functions or simply a&nbsp;list&nbsp;of commands (as is the traditional view). In OOP, each object can receive messages, process&nbsp;data, and send&nbsp;messages to other objects. Each object can be viewed as an independent little machine with a distinct role or responsibility.</p>
+
+<p>OOP promotes greater flexibility and maintainability in programming, and is widely popular in large-scale software engineering. Because OOP strongly emphasizes&nbsp;modularity, object-oriented code is simpler to develop and easier to understand later on. Object-oriented code promotes&nbsp;more direct analysis, coding, and understanding of complex situations and procedures than less modular programming methods.<a href="#cite-1"><sup>1</sup></a></p>
+
+<h2 id="Terminology">Terminology</h2>
+
+<dl>
+ <dt><a class="glossaryLink" href="/en-US/docs/Glossary/Namespace" title="Namespace: Namespace is a context for identifiers, a logical grouping of names used in a program. Within the same context and same scope,&nbsp; an identifier must uniquely identify an entity.">Namespace</a></dt>
+ <dd>A container which lets&nbsp;developers bundle all functionality under a unique, application-specific name.</dd>
+ <dt><a class="glossaryLink" href="/en-US/docs/Glossary/Class" title="Class: In object-oriented programming, a class defines an object's&nbsp;characteristics. Class&nbsp;is a template definition of an object's properties and methods, the &quot;blueprint&quot; from which other more specific instances of the object are drawn.">Class</a></dt>
+ <dd>Defines the object's characteristics. A class&nbsp;is a template definition of an object's&nbsp;properties and methods.</dd>
+ <dt><a class="glossaryLink" href="/en-US/docs/Glossary/Object" title="Object: Object refers to a data structure containing data and instructions for working with the data. Objects sometimes refer to real-world things, for example a car or map object in a racing game. JavaScript, Java, C++, and Python are examples of object-oriented programming languages.">Object</a></dt>
+ <dd>An instance of a class.</dd>
+ <dt><a class="glossaryLink" href="/en-US/docs/Glossary/Property" title="Property: A property is a characteristic of an object, often describing attributes associated with a data structure.">Property</a></dt>
+ <dd>An object characteristic, such as color.</dd>
+ <dt><a class="glossaryLink" href="/en-US/docs/Glossary/Method" title="Method: A function is a property of an object. Since functions themselves are objects, a method is actually an object reference to a function; methods are built-in tasks performed by an object.&nbsp; An example of a method in JavaScript is .toUpperCase().">Method</a></dt>
+ <dd>An object capability, such as walk. It is a subroutine or function associated with a class.</dd>
+ <dt><a class="glossaryLink" href="/en-US/docs/Glossary/Constructor" title="Constructor: A constructor belongs to a particular class object that is instantiated. The constructor initializes this&nbsp;object and can provide access to its private information. The concept of a constructor can be applied to most object-oriented programming languages. Essentially, a constructor in JavaScript is usually declared at the instance of a class.">Constructor</a></dt>
+ <dd>A method called at the moment an object is instantiated. It usually has the same name as the class containing it.</dd>
+ <dt><a class="glossaryLink" href="/en-US/docs/Glossary/Inheritance" title="Inheritance: Inheritance is a major feature of object-oriented programming.&nbsp; Data abstraction can be carried up several levels, that is, classes can have superclasses and subclasses.">Inheritance</a></dt>
+ <dd>A class can inherit characteristics from another class.</dd>
+ <dt><a class="glossaryLink" href="/en-US/docs/Glossary/Encapsulation" title="Encapsulation: Encapsulation is the packing of data and functions into one&nbsp;component (for example, a class) and then controlling access to that&nbsp;component to make a &quot;blackbox&quot; out of the object.&nbsp;Because of this, a user of that class only needs to know its interface (that is, the data and functions exposed&nbsp;outside&nbsp;the class), not the hidden implementation.">Encapsulation</a></dt>
+ <dd>A method of bundling the data and methods that use the data.</dd>
+ <dt><a class="glossaryLink" href="/en-US/docs/Glossary/Abstraction" title="Abstraction: Abstraction in computer programming is a way to&nbsp;reduce complexity and allow efficient design and implementation in complex software systems. It hides the technical complexity of systems behind simpler&nbsp;APIs.">Abstraction</a></dt>
+ <dd>The conjunction of an object's complex inheritance, methods, and properties&nbsp;must adequately&nbsp;reflect&nbsp;a reality model.</dd>
+ <dt><a class="glossaryLink" href="/en-US/docs/Glossary/Polymorphism" title="Polymorphism: Polymorphism is the presentation of one interface for multiple data types.
+ For example, integers, floats, and doubles are implicitly polymorphic: regardless of their different types, they can all be added, subtracted, multiplied, and so on.">Polymorphism</a></dt>
+ <dd>Poly means "<em>many</em>" and morphism means "<em>forms</em>". Different classes might define the same method or property.</dd>
+</dl>
+
+<p>For a more extensive description of object-oriented programming, see <a class="external external-icon" href="http://en.wikipedia.org/wiki/Object-oriented programming" title="Object-oriented programming">Object-oriented programming</a> at Wikipedia.</p>
+
+<h2 id="Prototype-based_programming">Prototype-based programming</h2>
+
+<p>Prototype-based programming is an OOP model&nbsp;that doesn't use&nbsp;classes, but rather accomplishes&nbsp;behavior reuse (equivalent to&nbsp;inheritance in class-based languages) by decorating (or expanding upon) existing <em>prototype&nbsp;</em>objects. (Also called&nbsp;classless, prototype-oriented, or instance-based programming.)</p>
+
+<p>The original (and most canonical) example of a prototype-based language is <a class="external external-icon" href="http://en.wikipedia.org/wiki/Self (programming language)" title="Self">Self</a> developed by David Ungar and Randall Smith. However, the class-less programming style grows&nbsp;increasingly popular lately, and has been adopted for programming languages such as JavaScript, Cecil, NewtonScript, Io, MOO, REBOL, Kevo, Squeak (when using the Viewer framework to manipulate Morphic components), and several others.<a href="#cite-1"><sup>1</sup></a></p>
+
+<h2 id="JavaScript_object_oriented_programming">JavaScript object oriented programming</h2>
+
+<h3 id="Namespace">Namespace</h3>
+
+<p>A namespace is a container which allows developers to bundle up&nbsp;functionality under a unique, application-specific name. <strong>In JavaScript a namespace is just another object containing methods, properties, and objects.</strong></p>
+
+<div class="note">
+<p><strong>Note:</strong> It's important to note that in JavaScript, there's no language-level difference between regular objects and namespaces. This differs from many other object-oriented languages, and can be a point of confusion for new JavaScript programmers.</p>
+</div>
+
+<p>The idea behind creating a namespace in JavaScript is simple: create one global object,&nbsp;and all variables, methods, and functions become properties of that object. Use of namespaces also reduces&nbsp;the chance of name conflicts in an application, since each application's objects are properties of an application-defined global object.</p>
+
+<p>Let's create a global object called MYAPP:</p>
+
+<pre class="brush: js  language-js" data-number=""><code class=" language-js"><span class="token comment" spellcheck="true">// global namespace
+</span><span class="token keyword">var</span> MYAPP <span class="token operator">=</span> MYAPP <span class="token operator">||</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span><div class="line-number" data-start="1" style="top: 0px;"></div><div class="line-number" data-start="2" style="top: 19px;"></div></code></pre>
+
+<p>In the above code sample, we&nbsp;first checked whether MYAPP is already defined (either in same file or in another file). If yes, then use the existing MYAPP global object, otherwise create an empty object called MYAPP which will encapsulate methods, functions, variables, and objects.</p>
+
+<p>We can also create sub-namespaces:</p>
+
+<pre class="brush: js  language-js" data-number=""><code class=" language-js"><span class="token comment" spellcheck="true">// sub namespace
+</span>MYAPP<span class="token punctuation">.</span>event <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span><div class="line-number" data-start="1" style="top: 0px;"></div><div class="line-number" data-start="2" style="top: 19px;"></div></code></pre>
+
+<p>The following&nbsp;is code syntax for creating a namespace and adding variables, functions, and a method:</p>
+
+<pre class="brush: js  language-js" data-number=""><code class=" language-js"><span class="token comment" spellcheck="true">// Create container called MYAPP.commonMethod for common method and properties
+</span>MYAPP<span class="token punctuation">.</span>commonMethod <span class="token operator">=</span> <span class="token punctuation">{</span>
+  regExForName<span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">,</span><span class="token comment" spellcheck="true"> // define regex for name validation
+</span>  regExForPhone<span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">,</span><span class="token comment" spellcheck="true"> // define regex for phone no validation
+</span>  validateName<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> // Do something with name, you can access regExForName variable
+</span>   <span class="token comment" spellcheck="true"> // using "this.regExForName"
+</span>  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+ 
+  validatePhoneNo<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>phoneNo<span class="token punctuation">)</span><span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> // do something with phone number
+</span>  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">
+// Object together with the method declarations
+</span>MYAPP<span class="token punctuation">.</span>event <span class="token operator">=</span> <span class="token punctuation">{</span>
+    addListener<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>el<span class="token punctuation">,</span> type<span class="token punctuation">,</span> fn<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> // code stuff
+</span>    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    removeListener<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>el<span class="token punctuation">,</span> type<span class="token punctuation">,</span> fn<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> // code stuff
+</span>    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    getEvent<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token comment" spellcheck="true"> // code stuff
+</span>    <span class="token punctuation">}</span>
+  
+   <span class="token comment" spellcheck="true"> // Can add another method and properties
+</span><span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">
+// Syntax for Using addListener method:
+</span>MYAPP<span class="token punctuation">.</span>event<span class="token punctuation">.</span><span class="token function">addListener<span class="token punctuation">(</span></span><span class="token string">"yourel"</span><span class="token punctuation">,</span> <span class="token string">"type"</span><span class="token punctuation">,</span> callback<span class="token punctuation">)</span><span class="token punctuation">;</span><div class="line-number" data-start="1" style="top: 0px;"></div><div class="line-number" data-start="2" style="top: 19px;"></div><div class="line-number" data-start="3" style="top: 38px;"></div><div class="line-number" data-start="4" style="top: 57px;"></div><div class="line-number" data-start="5" style="top: 76px;"></div><div class="line-number" data-start="6" style="top: 95px;"></div><div class="line-number" data-start="7" style="top: 114px;"></div><div class="line-number" data-start="8" style="top: 133px;"></div><div class="line-number" data-start="9" style="top: 152px;"></div><div class="line-number" data-start="10" style="top: 171px;"></div><div class="line-number" data-start="11" style="top: 190px;"></div><div class="line-number" data-start="12" style="top: 209px;"></div><div class="line-number" data-start="13" style="top: 228px;"></div><div class="line-number" data-start="14" style="top: 247px;"></div><div class="line-number" data-start="15" style="top: 266px;"></div><div class="line-number" data-start="16" style="top: 285px;"></div><div class="line-number" data-start="17" style="top: 304px;"></div><div class="line-number" data-start="18" style="top: 323px;"></div><div class="line-number" data-start="19" style="top: 342px;"></div><div class="line-number" data-start="20" style="top: 361px;"></div><div class="line-number" data-start="21" style="top: 380px;"></div><div class="line-number" data-start="22" style="top: 399px;"></div><div class="line-number" data-start="23" style="top: 418px;"></div><div class="line-number" data-start="24" style="top: 437px;"></div><div class="line-number" data-start="25" style="top: 456px;"></div><div class="line-number" data-start="26" style="top: 475px;"></div><div class="line-number" data-start="27" style="top: 494px;"></div><div class="line-number" data-start="28" style="top: 513px;"></div><div class="line-number" data-start="29" style="top: 532px;"></div><div class="line-number" data-start="30" style="top: 551px;"></div><div class="line-number" data-start="31" style="top: 570px;"></div></code></pre>
+
+<h3 id="Standard_built-in_objects">Standard built-in objects</h3>
+
+<p>JavaScript has several objects included in its core, for example, there are objects like Math, Object, Array, and String. The example below shows how to use the Math object to get a random number by using its <code>random()</code> method.</p>
+
+<pre class="brush: js  language-js" data-number=""><code class=" language-js">console<span class="token punctuation">.</span><span class="token function">log<span class="token punctuation">(</span></span>Math<span class="token punctuation">.</span><span class="token function">random<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><div class="line-number" data-start="1" style="top: 0px;"></div></code></pre>
+
+<div class="note"><strong>Note:</strong> This and all further examples presume a function named <a href="/en-US/docs/Web/API/Console/log" title="Outputs a message to the Web Console."><code>console.log()</code></a> is defined globally. The <code>console.log()</code> function is not actually a part of&nbsp;JavaScript&nbsp;itself, but many browsers implement it to aid in debugging.</div>
+
+<p>See <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects" title="en-US/docs/Web/JavaScript/Reference/Global_Objects">JavaScript Reference: Standard built-in objects</a> for a list of the core objects in JavaScript.</p>
+
+<p>Every object in JavaScript is an instance of the object <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object"><code>Object</code></a> and therefore inherits all its properties and methods.</p>
+
+<h3 id="Custom_objects">Custom objects</h3>
+
+<h4 id="The_class">The class</h4>
+
+<p>JavaScript is a prototype-based language and&nbsp;contains no <code>class</code> statement, such as is found in C++ or Java. This is sometimes confusing for programmers accustomed to languages with a <code>class</code> statement. Instead, JavaScript uses functions as classes. Defining a class is as easy as defining a function. In the example below we define a new class called Person.</p>
+
+<pre class="brush: js  language-js" data-number=""><code class=" language-js"><span class="token keyword">var</span> Person <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span><div class="line-number" data-start="1" style="top: 0px;"></div></code></pre>
+
+<h4 id="The_object_(class_instance)">The object (class instance)</h4>
+
+<p>To create a new instance of an object <code>obj</code> we use the statement <code>new obj</code>, assigning the result (which is of type <code>obj</code>) to a variable to access it later.</p>
+
+<p>In the example above we define a class named <code>Person</code>. In the example below we create two instances (<code>person1</code> and <code>person2</code>).</p>
+
+<pre class="brush: js  language-js" data-number=""><code class=" language-js"><span class="token keyword">var</span> person1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> person2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><div class="line-number" data-start="1" style="top: 0px;"></div><div class="line-number" data-start="2" style="top: 19px;"></div></code></pre>
+
+<div class="note"><strong>Note:</strong> Please see <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create" title="The Object.create() method creates a new object with the specified prototype object and properties."><code>Object.create()</code></a> for a new, additional, instantiation method that creates an uninitialized instance.</div>
+
+<h4 id="The_constructor">The constructor</h4>
+
+<p>The constructor is called at the moment of instantiation (the moment when the object instance is created). The constructor is a method of the class. In JavaScript the function serves as the constructor of the object, therefore there is no need to explicitly define a constructor method. Every action declared in the class gets executed at the time of instantiation.</p>
+
+<p>The constructor is used to set the object's properties or to call methods to prepare the object for use. Adding class methods and their definitions occurs using a different syntax described later in this article.</p>
+
+<p>In the example below, the constructor of the class <code>Person</code> logs a message when a <code>Person</code> is instantiated.</p>
+
+<pre class="brush: js  language-js" data-number=""><code class=" language-js"><span class="token keyword">var</span> Person <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log<span class="token punctuation">(</span></span><span class="token string">'instance created'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> person1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> person2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><div class="line-number" data-start="1" style="top: 0px;"></div><div class="line-number" data-start="2" style="top: 19px;"></div><div class="line-number" data-start="3" style="top: 38px;"></div><div class="line-number" data-start="4" style="top: 57px;"></div><div class="line-number" data-start="5" style="top: 76px;"></div><div class="line-number" data-start="6" style="top: 95px;"></div></code></pre>
+
+<h4 id="The_property_(object_attribute)">The property (object attribute)</h4>
+
+<p>Properties are variables contained in the class; every instance of the object has those properties. Properties are set in the constructor (function) of the class so that they are created on each instance.</p>
+
+<p>The keyword&nbsp;<code>this</code>, which refers to the current object,&nbsp;lets you&nbsp;work&nbsp;with properties from within the class.&nbsp;Accessing (reading or writing) a property outside of the class is done with the syntax: <code>InstanceName.Property</code>, just like in&nbsp;C++, Java, and several&nbsp;other languages. (Inside the class the syntax <code>this.Property</code> is used to get or set the property's value.)</p>
+
+<p>In the example below,&nbsp;we define the <code>firstName</code> property for the <code>Person</code> class at instantiation:</p>
+
+<pre class="brush: js  language-js" data-number=""><code class=" language-js"><span class="token keyword">var</span> Person <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>firstName<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>firstName <span class="token operator">=</span> firstName<span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log<span class="token punctuation">(</span></span><span class="token string">'Person instantiated'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> person1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">'Alice'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> person2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">'Bob'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">
+// Show the firstName properties of the objects
+</span>console<span class="token punctuation">.</span><span class="token function">log<span class="token punctuation">(</span></span><span class="token string">'person1 is '</span> <span class="token operator">+</span> person1<span class="token punctuation">.</span>firstName<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true"> // logs "person1 is Alice"
+</span>console<span class="token punctuation">.</span><span class="token function">log<span class="token punctuation">(</span></span><span class="token string">'person2 is '</span> <span class="token operator">+</span> person2<span class="token punctuation">.</span>firstName<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true"> // logs "person2 is Bob"</span><div class="line-number" data-start="1" style="top: 0px;"></div><div class="line-number" data-start="2" style="top: 19px;"></div><div class="line-number" data-start="3" style="top: 38px;"></div><div class="line-number" data-start="4" style="top: 57px;"></div><div class="line-number" data-start="5" style="top: 76px;"></div><div class="line-number" data-start="6" style="top: 95px;"></div><div class="line-number" data-start="7" style="top: 114px;"></div><div class="line-number" data-start="8" style="top: 133px;"></div><div class="line-number" data-start="9" style="top: 152px;"></div><div class="line-number" data-start="10" style="top: 171px;"></div><div class="line-number" data-start="11" style="top: 190px;"></div></code></pre>
+
+<h4 id="The_methods">The methods</h4>
+
+<p>Methods are functions (and defined like functions), but otherwise&nbsp;follow the same logic as properties. Calling a method is similar to accessing a property, but you add <code>()</code> at the end of the method name, possibly with arguments. To define a method, assign a function to a named property of the class's <code>prototype</code> property. Later, you can call the method on the object by the same name as you assigned the function to.</p>
+
+<p>In the example below, we define and use the method <code>sayHello()</code> for the <code>Person</code> class.</p>
+
+<pre class="brush: js  language-js" data-number=""><code class=" language-js"><span class="token keyword">var</span> Person <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>firstName<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>firstName <span class="token operator">=</span> firstName<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+Person<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>sayHello <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log<span class="token punctuation">(</span></span><span class="token string">"Hello, I'm "</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>firstName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> person1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">"Alice"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> person2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">"Bob"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">
+// call the Person sayHello method.
+</span>person1<span class="token punctuation">.</span><span class="token function">sayHello<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true"> // logs "Hello, I'm Alice"
+</span>person2<span class="token punctuation">.</span><span class="token function">sayHello<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true"> // logs "Hello, I'm Bob"</span><div class="line-number" data-start="1" style="top: 0px;"></div><div class="line-number" data-start="2" style="top: 19px;"></div><div class="line-number" data-start="3" style="top: 38px;"></div><div class="line-number" data-start="4" style="top: 57px;"></div><div class="line-number" data-start="5" style="top: 76px;"></div><div class="line-number" data-start="6" style="top: 95px;"></div><div class="line-number" data-start="7" style="top: 114px;"></div><div class="line-number" data-start="8" style="top: 133px;"></div><div class="line-number" data-start="9" style="top: 152px;"></div><div class="line-number" data-start="10" style="top: 171px;"></div><div class="line-number" data-start="11" style="top: 190px;"></div><div class="line-number" data-start="12" style="top: 209px;"></div><div class="line-number" data-start="13" style="top: 228px;"></div><div class="line-number" data-start="14" style="top: 247px;"></div></code></pre>
+
+<p>In JavaScript methods are regular function objects bound to an object as a property, which means you can invoke methods&nbsp;"out of the context". Consider the following example code:</p>
+
+<pre class="brush: js  language-js" data-number=""><code class=" language-js"><span class="token keyword">var</span> Person <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>firstName<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>firstName <span class="token operator">=</span> firstName<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+Person<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>sayHello <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log<span class="token punctuation">(</span></span><span class="token string">"Hello, I'm "</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>firstName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> person1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">"Alice"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> person2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">"Bob"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> helloFunction <span class="token operator">=</span> person1<span class="token punctuation">.</span>sayHello<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">
+// logs "Hello, I'm Alice"
+</span>person1<span class="token punctuation">.</span><span class="token function">sayHello<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">
+// logs "Hello, I'm Bob"
+</span>person2<span class="token punctuation">.</span><span class="token function">sayHello<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">
+// logs "Hello, I'm undefined" (or fails
+</span><span class="token comment" spellcheck="true">// with a TypeError in strict mode)
+</span><span class="token function">helloFunction<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>                                    
+<span class="token comment" spellcheck="true">
+// logs true
+</span>console<span class="token punctuation">.</span><span class="token function">log<span class="token punctuation">(</span></span>helloFunction <span class="token operator">===</span> person1<span class="token punctuation">.</span>sayHello<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">
+// logs true
+</span>console<span class="token punctuation">.</span><span class="token function">log<span class="token punctuation">(</span></span>helloFunction <span class="token operator">===</span> Person<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>sayHello<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">
+// logs "Hello, I'm Alice"
+</span>helloFunction<span class="token punctuation">.</span><span class="token function">call<span class="token punctuation">(</span></span>person1<span class="token punctuation">)</span><span class="token punctuation">;</span><div class="line-number" data-start="1" style="top: 0px;"></div><div class="line-number" data-start="2" style="top: 19px;"></div><div class="line-number" data-start="3" style="top: 38px;"></div><div class="line-number" data-start="4" style="top: 57px;"></div><div class="line-number" data-start="5" style="top: 76px;"></div><div class="line-number" data-start="6" style="top: 95px;"></div><div class="line-number" data-start="7" style="top: 114px;"></div><div class="line-number" data-start="8" style="top: 133px;"></div><div class="line-number" data-start="9" style="top: 152px;"></div><div class="line-number" data-start="10" style="top: 171px;"></div><div class="line-number" data-start="11" style="top: 190px;"></div><div class="line-number" data-start="12" style="top: 209px;"></div><div class="line-number" data-start="13" style="top: 228px;"></div><div class="line-number" data-start="14" style="top: 247px;"></div><div class="line-number" data-start="15" style="top: 266px;"></div><div class="line-number" data-start="16" style="top: 285px;"></div><div class="line-number" data-start="17" style="top: 304px;"></div><div class="line-number" data-start="18" style="top: 323px;"></div><div class="line-number" data-start="19" style="top: 342px;"></div><div class="line-number" data-start="20" style="top: 361px;"></div><div class="line-number" data-start="21" style="top: 380px;"></div><div class="line-number" data-start="22" style="top: 399px;"></div><div class="line-number" data-start="23" style="top: 418px;"></div><div class="line-number" data-start="24" style="top: 437px;"></div><div class="line-number" data-start="25" style="top: 456px;"></div><div class="line-number" data-start="26" style="top: 475px;"></div><div class="line-number" data-start="27" style="top: 494px;"></div><div class="line-number" data-start="28" style="top: 513px;"></div><div class="line-number" data-start="29" style="top: 532px;"></div><div class="line-number" data-start="30" style="top: 551px;"></div></code></pre>
+
+<p>As that example shows, all of the references we have to the <code>sayHello</code> function— the one on <code>person1</code>, on <code>Person.prototype</code>, in the <code>helloFunction</code> variable, etc.— refer to the <em>same function</em>. The value of <code>this</code> during a call to the function depends on how we call it. Most commonly,&nbsp;when we call <code>this</code>&nbsp;in an expression where we got the function from an object property— <code>person1.sayHello()</code>— <code>this</code> is set to the object we got the function from (<code>person1</code>), which is why <code>person1.sayHello()</code> uses the name "Alice" and <code>person2.sayHello()</code> uses the name "Bob". But if we call it other ways, <code>this</code> is set differently: calling <code>this</code>&nbsp;from a variable— <code>helloFunction()</code>— sets <code>this</code> to the global object (<code>window</code>, on browsers). Since that object (probably) doesn't have a <code>firstName</code> property, we end up with "Hello, I'm undefined". (That's in loose mode code; it would be different [an error] in <a href="/en-US/docs/Web/JavaScript/Reference/Strict_mode" title="/en/docs/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode">strict mode</a>, but to avoid confusion we won't go into detail here.) Or we can set <code>this</code> explicitly using <code>Function#call</code> (or <code>Function#apply</code>), as shown at the end of the example.</p>
+
+<div class="note"><strong>Note:</strong> See more about <code>this</code> on <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call" title="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/call">Function#call</a> and <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply" title="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/apply">Function#apply</a></div>
+
+<h4 id="Inheritance">Inheritance</h4>
+
+<p>Inheritance is a way to create a class as a specialized version of one or more classes (<em>JavaScript only supports single inheritance</em>). The specialized class is commonly called the <em>child</em>, and the other class is commonly called the <em>parent</em>. In JavaScript you do this by assigning an instance of the parent class to the child class, and then specializing it. In modern browsers you can also use <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create#Classical_inheritance_with_Object.create" title="/en-US/docs/JavaScript/Reference/Global_Objects/Object/create#Classical_inheritance_with_Object.create">Object.create</a> to implement inheritance.</p>
+
+<div class="note">
+<p><strong>Note:</strong> JavaScript does not detect the child class <code>prototype.constructor</code> (see <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/prototype">Object.prototype</a>), so we must state that manually. See the question "<a class="external external-icon" href="http://stackoverflow.com/questions/8453887/why-is-it-necessary-to-set-the-prototype-constructor">Why is it necessary to set the prototype constructor?</a>" on Stackoverflow.</p>
+</div>
+
+<p>In the example below, we define the class <code>Student</code> as a child class of <code>Person</code>. Then we redefine the <code>sayHello()</code> method and add the <code>sayGoodBye()</code> method.</p>
+
+<pre class="brush: js  language-js" data-number=""><code class=" language-js"><span class="token comment" spellcheck="true">// Define the Person constructor
+</span><span class="token keyword">var</span> Person <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>firstName<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>firstName <span class="token operator">=</span> firstName<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">
+// Add a couple of methods to Person.prototype
+</span>Person<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>walk <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log<span class="token punctuation">(</span></span><span class="token string">"I am walking!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+Person<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>sayHello <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log<span class="token punctuation">(</span></span><span class="token string">"Hello, I'm "</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>firstName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">
+// Define the Student constructor
+</span><span class="token keyword">function</span> <span class="token function">Student<span class="token punctuation">(</span></span>firstName<span class="token punctuation">,</span> subject<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+ <span class="token comment" spellcheck="true"> // Call the parent constructor, making sure (using Function#call)
+</span> <span class="token comment" spellcheck="true"> // that "this" is set correctly during the call
+</span>  Person<span class="token punctuation">.</span><span class="token function">call<span class="token punctuation">(</span></span><span class="token keyword">this</span><span class="token punctuation">,</span> firstName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+ <span class="token comment" spellcheck="true"> // Initialize our Student-specific properties
+</span>  <span class="token keyword">this</span><span class="token punctuation">.</span>subject <span class="token operator">=</span> subject<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">
+// Create a Student.prototype object that inherits from Person.prototype.
+</span><span class="token comment" spellcheck="true">// Note: A common error here is to use "new Person()" to create the
+</span><span class="token comment" spellcheck="true">// Student.prototype. That's incorrect for several reasons, not least 
+</span><span class="token comment" spellcheck="true">// that we don't have anything to give Person for the "firstName" 
+</span><span class="token comment" spellcheck="true">// argument. The correct place to call Person is above, where we call 
+</span><span class="token comment" spellcheck="true">// it from Student.
+</span>Student<span class="token punctuation">.</span>prototype <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">create<span class="token punctuation">(</span></span>Person<span class="token punctuation">.</span>prototype<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true"> // See note below
+</span><span class="token comment" spellcheck="true">
+// Set the "constructor" property to refer to Student
+</span>Student<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>constructor <span class="token operator">=</span> Student<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">
+// Replace the "sayHello" method
+</span>Student<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>sayHello <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log<span class="token punctuation">(</span></span><span class="token string">"Hello, I'm "</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>firstName <span class="token operator">+</span> <span class="token string">". I'm studying "</span>
+              <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>subject <span class="token operator">+</span> <span class="token string">"."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">
+// Add a "sayGoodBye" method
+</span>Student<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>sayGoodBye <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log<span class="token punctuation">(</span></span><span class="token string">"Goodbye!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">
+// Example usage:
+</span><span class="token keyword">var</span> student1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token string">"Janet"</span><span class="token punctuation">,</span> <span class="token string">"Applied Physics"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+student1<span class="token punctuation">.</span><span class="token function">sayHello<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true"> // "Hello, I'm Janet. I'm studying Applied Physics."
+</span>student1<span class="token punctuation">.</span><span class="token function">walk<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment" spellcheck="true"> // "I am walking!"
+</span>student1<span class="token punctuation">.</span><span class="token function">sayGoodBye<span class="token punctuation">(</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true"> // "Goodbye!"
+</span><span class="token comment" spellcheck="true">
+// Check that instanceof works correctly
+</span>console<span class="token punctuation">.</span><span class="token function">log<span class="token punctuation">(</span></span>student1 <span class="token keyword">instanceof</span> <span class="token class-name">Person</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true"> // true 
+</span>console<span class="token punctuation">.</span><span class="token function">log<span class="token punctuation">(</span></span>student1 <span class="token keyword">instanceof</span> <span class="token class-name">Student</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true"> // true</span><div class="line-number" data-start="1" style="top: 0px;"></div><div class="line-number" data-start="2" style="top: 19px;"></div><div class="line-number" data-start="3" style="top: 38px;"></div><div class="line-number" data-start="4" style="top: 57px;"></div><div class="line-number" data-start="5" style="top: 76px;"></div><div class="line-number" data-start="6" style="top: 95px;"></div><div class="line-number" data-start="7" style="top: 114px;"></div><div class="line-number" data-start="8" style="top: 133px;"></div><div class="line-number" data-start="9" style="top: 152px;"></div><div class="line-number" data-start="10" style="top: 171px;"></div><div class="line-number" data-start="11" style="top: 190px;"></div><div class="line-number" data-start="12" style="top: 209px;"></div><div class="line-number" data-start="13" style="top: 228px;"></div><div class="line-number" data-start="14" style="top: 247px;"></div><div class="line-number" data-start="15" style="top: 266px;"></div><div class="line-number" data-start="16" style="top: 285px;"></div><div class="line-number" data-start="17" style="top: 304px;"></div><div class="line-number" data-start="18" style="top: 323px;"></div><div class="line-number" data-start="19" style="top: 342px;"></div><div class="line-number" data-start="20" style="top: 361px;"></div><div class="line-number" data-start="21" style="top: 380px;"></div><div class="line-number" data-start="22" style="top: 399px;"></div><div class="line-number" data-start="23" style="top: 418px;"></div><div class="line-number" data-start="24" style="top: 437px;"></div><div class="line-number" data-start="25" style="top: 456px;"></div><div class="line-number" data-start="26" style="top: 475px;"></div><div class="line-number" data-start="27" style="top: 494px;"></div><div class="line-number" data-start="28" style="top: 513px;"></div><div class="line-number" data-start="29" style="top: 532px;"></div><div class="line-number" data-start="30" style="top: 551px;"></div><div class="line-number" data-start="31" style="top: 570px;"></div><div class="line-number" data-start="32" style="top: 589px;"></div><div class="line-number" data-start="33" style="top: 608px;"></div><div class="line-number" data-start="34" style="top: 627px;"></div><div class="line-number" data-start="35" style="top: 646px;"></div><div class="line-number" data-start="36" style="top: 665px;"></div><div class="line-number" data-start="37" style="top: 684px;"></div><div class="line-number" data-start="38" style="top: 703px;"></div><div class="line-number" data-start="39" style="top: 722px;"></div><div class="line-number" data-start="40" style="top: 741px;"></div><div class="line-number" data-start="41" style="top: 760px;"></div><div class="line-number" data-start="42" style="top: 779px;"></div><div class="line-number" data-start="43" style="top: 798px;"></div><div class="line-number" data-start="44" style="top: 817px;"></div><div class="line-number" data-start="45" style="top: 836px;"></div><div class="line-number" data-start="46" style="top: 855px;"></div><div class="line-number" data-start="47" style="top: 874px;"></div><div class="line-number" data-start="48" style="top: 893px;"></div><div class="line-number" data-start="49" style="top: 912px;"></div><div class="line-number" data-start="50" style="top: 931px;"></div><div class="line-number" data-start="51" style="top: 950px;"></div><div class="line-number" data-start="52" style="top: 969px;"></div><div class="line-number" data-start="53" style="top: 988px;"></div><div class="line-number" data-start="54" style="top: 1007px;"></div><div class="line-number" data-start="55" style="top: 1026px;"></div></code></pre>
+
+<p>Regarding the <code>Student.prototype = Object.create(Person.prototype);</code> line: On older JavaScript engines without <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create" title="Object.create"><code>Object.create</code></a>, one can either use a "polyfill" (aka "shim", see the linked article), or one can use a function that achieves the same result, such as:</p>
+
+<pre class="brush: js  language-js" data-number=""><code class=" language-js"><span class="token keyword">function</span> <span class="token function">createObject<span class="token punctuation">(</span></span>proto<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">function</span> <span class="token function">ctor<span class="token punctuation">(</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+    ctor<span class="token punctuation">.</span>prototype <span class="token operator">=</span> proto<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ctor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">
+// Usage:
+</span>Student<span class="token punctuation">.</span>prototype <span class="token operator">=</span> <span class="token function">createObject<span class="token punctuation">(</span></span>Person<span class="token punctuation">.</span>prototype<span class="token punctuation">)</span><span class="token punctuation">;</span><div class="line-number" data-start="1" style="top: 0px;"></div><div class="line-number" data-start="2" style="top: 19px;"></div><div class="line-number" data-start="3" style="top: 38px;"></div><div class="line-number" data-start="4" style="top: 57px;"></div><div class="line-number" data-start="5" style="top: 76px;"></div><div class="line-number" data-start="6" style="top: 95px;"></div><div class="line-number" data-start="7" style="top: 114px;"></div><div class="line-number" data-start="8" style="top: 133px;"></div></code></pre>
+
+<div class="note"><strong>Note:</strong> See <a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create" title="Object.create">Object.create</a> for more on what it does, and a shim for older engines.</div>
+
+<p>Making sure that <code>this</code> points to the right thing regardless of how the object is instantiated can be difficult. However, there is a simple idiom to make this easier.</p>
+
+<pre class="brush: js  language-js" data-number=""><code class=" language-js"><span class="token keyword">var</span> Person <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>firstName<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token keyword">instanceof</span> <span class="token class-name">Person</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>firstName <span class="token operator">=</span> firstName<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span>firstName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><div class="line-number" data-start="1" style="top: 0px;"></div><div class="line-number" data-start="2" style="top: 19px;"></div><div class="line-number" data-start="3" style="top: 38px;"></div><div class="line-number" data-start="4" style="top: 57px;"></div><div class="line-number" data-start="5" style="top: 76px;"></div><div class="line-number" data-start="6" style="top: 95px;"></div><div class="line-number" data-start="7" style="top: 114px;"></div></code></pre>
+
+<h4 id="Encapsulation">Encapsulation</h4>
+
+<p>In the previous example, <code>Student</code> does not need to know how the <code>Person</code> class's <code>walk()</code> method is implemented, but still can use that method; the <code>Student</code> class doesn't need to explicitly define that method unless we want to change it. This is called <strong>encapsulation</strong>, by which every class packages data and methods into a single unit.</p>
+
+<p>Information hiding is a common feature in other languages often as private and protected methods/properties. Even though you could simulate something like this on JavaScript, this is not a requirement to do Object Oriented programming.<a href="#cite-2"><sup>2</sup></a></p>
+
+<h4 id="Abstraction">Abstraction</h4>
+
+<p>Abstraction is a mechanism that allows you to model&nbsp;the current part of the working problem, either by&nbsp;inheritance (specialization)&nbsp;or composition. JavaScript achieves specialization by inheritance, and composition by letting class instances be the values of other objects'&nbsp;attributes.</p>
+
+<p>The JavaScript Function class inherits from the Object class (this demonstrates specialization of the model) and the Function.prototype property is an instance of Object (this demonstrates composition).</p>
+
+<pre class="brush: js  language-js" data-number=""><code class=" language-js"><span class="token keyword">var</span> foo <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">
+// logs "foo is a Function: true"
+</span>console<span class="token punctuation">.</span><span class="token function">log<span class="token punctuation">(</span></span><span class="token string">'foo is a Function: '</span> <span class="token operator">+</span> <span class="token punctuation">(</span>foo <span class="token keyword">instanceof</span> <span class="token class-name">Function</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">
+// logs "foo.prototype is an Object: true"
+</span>console<span class="token punctuation">.</span><span class="token function">log<span class="token punctuation">(</span></span><span class="token string">'foo.prototype is an Object: '</span> <span class="token operator">+</span> <span class="token punctuation">(</span>foo<span class="token punctuation">.</span>prototype <span class="token keyword">instanceof</span> <span class="token class-name">Object</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><div class="line-number" data-start="1" style="top: 0px;"></div><div class="line-number" data-start="2" style="top: 19px;"></div><div class="line-number" data-start="3" style="top: 38px;"></div><div class="line-number" data-start="4" style="top: 57px;"></div><div class="line-number" data-start="5" style="top: 76px;"></div><div class="line-number" data-start="6" style="top: 95px;"></div><div class="line-number" data-start="7" style="top: 114px;"></div></code></pre>
+
+<h4 id="Polymorphism">Polymorphism</h4>
+
+<p>Just as&nbsp;all methods and properties are defined inside the prototype property, different classes can define methods with the same name; methods are scoped to the class in which they're defined, unless&nbsp;the two classes hold a parent-child relation (i.e. one&nbsp;inherits from the other in a chain of inheritance).</p>
+
+<h2 id="Notes">Notes</h2>
+
+<p>These are not the only ways you can implement object-oriented programming in JavaScript, which is very flexible in this regard. Likewise,&nbsp;the techniques shown here do not use any language hacks, nor do they mimic other languages' object theory implementations.</p>
+
+<p>There are other techniques&nbsp;that make even more advanced object-oriented programming in JavaScript, but those are beyond the scope of this introductory article.</p>
+
+<h2 id="References">References</h2>
+
+<ol>
+ <li>Wikipedia. "<a class="external external-icon" href="http://en.wikipedia.org/wiki/Object-oriented_programming">Object-oriented programming</a>"</li>
+ <li>Wikipedia. "<a class="external external-icon" href="http://en.wikipedia.org/wiki/Encapsulation_%28object-oriented_programming%29">Encapsulation (object-oriented programming)</a>"</li>
+</ol>
+</article>

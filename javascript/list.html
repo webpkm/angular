@@ -1,0 +1,56 @@
+<select id="country" multiple="true">
+	<option value="india">India</option>
+	<option value="amerika">Amerika</option>
+	<option value="kanada">Kanada</option>
+	<option value="china">China</option>
+	<option value="Pakistan">Pakistan</option>
+</select>
+<br>
+<br>
+<button onclick="Selection.showCurrent()">Show Current</button>
+<button onclick="Selection.moveUp()">Move UP</button>
+<button onclick="Selection.moveDown()">Move Down</button>
+
+<script>
+var Selection = {
+	element: document.getElementById("country"),
+	checkSelection : function() {
+		if(this.element.options.selectedIndex==-1){
+			alert("Please select to move");
+			return false;
+		}
+		return true
+	},
+	showCurrent : function() {
+		var s = this.element.options.selectedIndex;
+		alert(this.element.options[s].value+""+this.element.options[s].text);
+	},
+	
+	moveUp : function() {
+		this.move(1);
+	},
+	
+	moveDown : function() {
+		this.move(-1);
+	},
+	move : function(d) {
+		var options = this.element.options;
+		var selIndex = options.selectedIndex;
+		var dIndex = selIndex-d;
+		if(!this.checkSelection()) return;
+		
+		var text = options[dIndex].text;
+		var val = options[dIndex].value;
+		
+		options[dIndex].text = options[selIndex].text;  
+		options[dIndex].value = options[selIndex].value;
+		
+		options[selIndex].text = text;
+		options[selIndex].value = val;
+		
+		this.element.selectedIndex = dIndex;
+		
+	}
+	
+};
+</script>

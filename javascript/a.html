@@ -1,0 +1,40 @@
+<script>
+/*
+var t = function(){
+		this.a = 10;
+		this.print = function(){
+			alert(this.a);
+		};
+		this.increase = function(){
+			this.a++;
+		}
+		this.show = function(){
+			alert(this.a);
+		}
+}
+*/
+var t = function(){
+	var a = 10;
+	this.print = function(){
+		alert(a);
+	};
+	this.increase = function(){
+		a++;
+	}
+	this.show = function(){
+		alert(a);
+	}
+}
+
+var s = function() {
+	//var a=20;
+	this.me = function(){
+		alert(a);
+	}
+}
+s.prototype = new t();
+var o = new s();
+o.me();
+var obj = new t();
+obj.print();
+</script>

@@ -45,7 +45,6 @@ app.config(['$routeProvider',
                 } else {
                     var nextUrl = next.$$route.originalPath;
                     if (nextUrl == '/signup' || nextUrl == '/login') {
-
                     } else {
                         $location.path("/login");
                     }
