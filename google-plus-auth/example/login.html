@@ -1,0 +1,16 @@
+<div class="google-auth-box" ng-controller='AppCtrl'>
+
+    <div ng-if="!user.loggedIn">
+        <div>Hello <span class="highlight">Stranger</span>!</div>
+        <button class="google-button" ng-click=login()>Sign in with Google</button>
+    </div>
+
+    <div ng-if="user.loggedIn">
+		<div style="text-align:center">
+			<img ng-src="{{user.profile.picture}}" style="width:200px;border-radius:50%;">
+		</div>
+        <div>Hello <span class="highlight">{{user.profile.given_name}}</span>!</div>
+        <button class="google-button" ng-click=logout()>Sign out</button>
+    </div>
+
+</div>
