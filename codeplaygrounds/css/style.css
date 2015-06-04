@@ -1,0 +1,41 @@
+a {
+  color: blue;
+}
+a:hover {
+  color: red;
+}
+div {
+  color: blue;
+  padding: 50px;
+  margin: 50px;
+  border: 1px solid #CCC;
+}
+div:hover {
+  color: red;
+}
+/* Mixin */
+/* Implementation */
+#somediv1 {
+  -webkit-transition: all 0.1s ease-in;
+  -moz-transition: all 0.1s ease-in;
+  -o-transition: all 0.1s ease-in;
+  -ms-transition: all 0.1s ease-in;
+  transition: all 0.1s ease-in;
+}
+#somediv2 {
+  -webkit-transition: all 0.5s ease-in;
+  -moz-transition: all 0.5s ease-in;
+  -o-transition: all 0.5s ease-in;
+  -ms-transition: all 0.5s ease-in;
+  transition: all 0.5s ease-in;
+}
+#somediv3 {
+  -webkit-transition: all 0.8s ease-in;
+  -moz-transition: all 0.8s ease-in;
+  -o-transition: all 0.8s ease-in;
+  -ms-transition: all 0.8s ease-in;
+  transition: all 0.8s ease-in;
+}
+div:hover {
+  opacity: 0;
+}

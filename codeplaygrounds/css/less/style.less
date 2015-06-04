@@ -1,0 +1,43 @@
+@import "variables.less";
+
+a { 
+	color: blue; 
+	&:hover { 
+		color: red; 
+	}
+} 
+
+div { 
+	color: blue; 
+	padding: 5*@base;
+	margin: 5*@base;
+	border:1px solid #CCC;
+	&:hover { 
+		color: red; 
+	}
+}
+
+/* Mixin */
+.transition (@prop: all, @time: 1s, @ease: linear) {
+    -webkit-transition: @prop @time @ease;
+    -moz-transition: @prop @time @ease;
+    -o-transition: @prop @time @ease;
+    -ms-transition: @prop @time @ease;
+    transition: @prop @time @ease;
+}
+ 
+/* Implementation */
+#somediv1 {
+    .transition(all, 0.1s, ease-in);
+}
+ 
+#somediv2 {
+    .transition(all, 0.5s, ease-in);
+} 
+#somediv3 {
+    .transition(all, 0.8s, ease-in);
+} 
+ 
+div:hover {
+    opacity: 0;
+} 
