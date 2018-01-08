@@ -1,0 +1,33 @@
+1.	Purchase topup component (https://brooklyn.atlassian.net/browse/ROAM-64)
+	a. If top up type of "Monthly" then show the Number of days selection box
+	b. If Payment method is "Registed credit card" then show the option if user does not have any saved card
+	c. If "Send additional SMS message" is selected then enable the "Text message for additional SMS" field
+	d. "Send additional SMS message" check box message should come in two line on small screen: Pending
+	e. Add the hint out of 1000 char for "additional mesasge input" and it should update while typing
+	f. Add the marLength of 1000 char for "additional mesasge input" 
+
+--------------
+git fetch && git checkout feature/ROAM-64-top-up-prepaid-static-screen ---------------
+--------------
+ROAM-64 [feature] Corrected the top up prepaid static screen
+ROAM-64 [feature] Fixed the lint error
+---------------	
+	
+3.	View option detail component (https://brooklyn.atlassian.net/browse/ROAM-37) : Pull request Comments
+	a. Here you will show OptionsCategoryComponent.The component show all options filtered by specific category
+
+	b. what is the difference between this component and sr-option-detail-dialog?
+	George Tsopouridis
+Exactly @Vaibhav Bhalla it seems that we invented a new component sr-option-detail-dialog that practically has the same logic and content like the option component but it is a dialog. The option component should be our dialog except if we have a dialog as a parent container that should inject/keep the option component inside. @Vaibhav Bhalla for now please change our existing option.component to be and behave as a dialog. This sr-option-detail-dialog is not required then.
+
+	d. Why do you need the component? I can't see any reason why we need the componenet
+
+	e. data should be predefined type, do not use any
+
+
+	f. Rename this to options.
+	
+	g. options-category page (View all) it should use the option componet and generate the page
+	h. Item should be one item and it should iterate in options and view all
+	i. Scroll bar is not coming after making it seperate option
+
